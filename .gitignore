@@ -3,6 +3,8 @@
 
 # Object files
 *.o
+*.src_o
+*.asm_o
 *.ko
 *.obj
 *.elf
