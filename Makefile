@@ -1,7 +1,7 @@
 CFLAGS   = -mcpu=cortex-a53 -fpic -ffreestanding -fsigned-char -Wall -Wextra -Wno-missing-field-initializers -O0 -g0
 ASMFLAGS = -mcpu=cortex-a53
 LDFLAGS  = -T lscript.ld
-TARGET   = kernel8.elf kernel8.lst kernel8.bin kernel8.img
+TARGET   = kernel8.elf kernel8.lst kernel8.bin
 LIBS     = -lc -lm
 ASMFILES = $(wildcard sources/*.S)
 CFILES   = $(wildcard sources/*.c)
