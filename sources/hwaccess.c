@@ -1,6 +1,5 @@
 #include "hwaccess.h"
 
-
 void hw_uart_puts(char* pBuf)
 {
     if (NULL == pBuf)

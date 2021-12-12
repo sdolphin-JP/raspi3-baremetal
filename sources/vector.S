@@ -7,67 +7,67 @@ __vector_table:
 
     /* Synchronous / Current EL with SP0 */
     .org VBAR
-        b .
+        eret
 
     /* IRQ/vIRQ / Current EL with SP0 */
     .org (VBAR + 0x80)
-        b .
+        eret
 
     /* FIQ/vFRQ / Current EL with SP0 */
     .org (VBAR + 0x100)
-        b .
+        eret
 
     /* SError/vSError / Current EL with SP0 */
     .org (VBAR + 0x180)
-        b .
+        eret
 
 
     /* Synchronous / Current EL with SPx */
     .org (VBAR + 0x200)
-        b .
+        eret
 
     /* IRQ/vIRQ / Current EL with SPx */
     .org (VBAR + 0x280)
-        b .
+        eret
 
     /* FIQ/vFRQ / Current EL with SPx */
     .org (VBAR + 0x300)
-        b .
+        eret
 
     /* SError/vSError / Current EL with SPx */
     .org (VBAR + 0x380)
-        b .
+        eret
 
 
     /* Synchronous / Lower EL using AArch64 */
     .org (VBAR + 0x400)
-        b .
+        eret
 
     /* IRQ/vIRQ / Lower EL using AArch64 */
     .org (VBAR + 0x480)
-        b .
+        eret
 
     /* FIQ/vFRQ / Lower EL using AArch64 */
     .org (VBAR + 0x500)
-        b .
+        eret
 
     /* SError/vSError / Lower EL using AArch64 */
     .org (VBAR + 0x580)
-        b .
+        eret
 
 
     /* Synchronous / Lower EL using AArch32 */
     .org (VBAR + 0x600)
-        b .
+        eret
 
     /* IRQ/vIRQ / Lower EL using AArch32 */
     .org (VBAR + 0x680)
-        b .
+        eret
 
     /* FIQ/vFRQ / Lower EL using AArch32 */
     .org (VBAR + 0x700)
-        b .
+        eret
 
     /* SError/vSError / Lower EL using AArch32 */
     .org (VBAR + 0x780)
-        b .
+        eret

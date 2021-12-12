@@ -1,4 +1,4 @@
-CFLAGS   = -mcpu=cortex-a53 -fpic -ffreestanding -fsigned-char -Wall -Wextra -Wno-missing-field-initializers -O0 -g0
+CFLAGS   = -mcpu=cortex-a53 -fpic -ffreestanding -fsigned-char -Wall -Wextra -Wno-missing-field-initializers -O0 -g3
 ASMFLAGS = -mcpu=cortex-a53
 LDFLAGS  = -T lscript.ld
 TARGET   = kernel8.elf kernel8.lst kernel8.bin
@@ -20,7 +20,7 @@ clean:
 
 .PHONY: kernel8.bin
 kernel8.bin: kernel8.elf
-	$(OC) -v -g --strip-unneeded -O binary $< $@
+	$(OC) --strip-debug --strip-unneeded -O binary $< $@
 
 .PHONY: kernel8.lst
 kernel8.lst: kernel8.elf
@@ -37,3 +37,13 @@ kernel8.elf: $(OBJS) $(LIBS)
 .PHONY: %.src_o
 %.src_o : %.c
 	$(CC) -o $@ -c $(CFLAGS) $(INCS) $<
+
+.PHONY: run-qemu
+run-qemu:
+	@/opt/qemu-6.1.0/bin/qemu-system-aarch64 \
+		-M raspi3b \
+		-m 1024 \
+		-monitor stdio \
+		-display none \
+		-d in_asm \
+		-kernel kernel8.elf
